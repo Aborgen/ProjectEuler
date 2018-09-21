@@ -40,5 +40,33 @@ namespace ProjectEuler.Utils.Tests
             var reconstruction = Math.Pow(2, reduced) * result;
             Assert.Equal(reconstruction, input - 1);
         }
+
+        /*[Fact]
+        public void Produces_List_Of_Primes()
+        {
+            var primeList = PrimeGen.GenerateList(100);
+            Assert.Equal(100, primeList.Count);
+            Assert.Equal(2, primeList[0]);
+            Assert.Equal(13, primeList[5]);
+            Assert.Equal(101, primeList[25]);
+            Assert.Equal(541, primeList[primeList.Count - 1]);
+        }
+        */
+
+        [Theory]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(4, false)]
+        [InlineData(9, false)]
+        [InlineData(11, true)]
+        [InlineData(73, true)]
+        [InlineData(83, true)]
+        [InlineData(103, true)]
+        [InlineData(125, false)]
+        public void Checks_If_Number_Is_Prime(int value, bool answer)
+        {
+            var primality = PrimeGen.IsPrime(value, accuracy:5406020);
+            Assert.Equal(answer, primality);
+        }
     }
 }

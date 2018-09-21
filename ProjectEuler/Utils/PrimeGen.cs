@@ -19,7 +19,7 @@ namespace ProjectEuler.Utils
             else
             {
                 int nextPrime = currentPrime + 1;
-                while(!isPrime(nextPrime))
+                while(!IsPrime(nextPrime))
                 {
                     ++nextPrime;
                 }
@@ -30,8 +30,66 @@ namespace ProjectEuler.Utils
             return currentPrime;
         }
 
-        private static bool isPrime(int num, int accuracy = 5)
+        public static bool IsPrime(int num, int accuracy = 5)
         {
+            if (num != 2 && IsEven(num))
+            {
+                return false;
+            }
+            else if (num == 2 || num == 3)
+            {
+                return true;
+            }
+
+            bool isComposite = MillerRabinPrimality(num, accuracy);
+            return !isComposite;
+        }
+
+        // Returns true if the passed-in number is definitely composite
+        // and returns false if the number is probably prime.
+        private static bool MillerRabinPrimality(int num, int accuracy)
+        {
+
+            Random r = new Random();
+            var (reducedNum, timesReduced) = ReduceToOdd(num);
+            int randNum;
+            for (int _ = 0; _ < accuracy; _++)
+            {
+                randNum = r.Next(2, num - 2);
+                // If a number in the range [2, n-2] to the power
+                // of n factored until n is odd mod n is odd,
+                // n is probably prime. Continue loop for
+                // greater confidence that this is the case.
+                double x = Math.Pow(randNum, reducedNum) % num;
+                if (x == 1 || x == num - 1)
+                {
+                    continue;
+                }
+                else if (!Something(x, num, timesReduced))
+                {
+                    continue;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool Something(double x, int num, int timesReduced)
+        {
+            double temp = x;
+            for (int _ = 0; _ < timesReduced; _++)
+            {
+                // The second case where the tested number could
+                // possibly be prime.
+                temp = Math.Pow(temp, 2) % num;
+                if (temp == num - 1)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -40,7 +98,7 @@ namespace ProjectEuler.Utils
         // the odd number as well as the number of times the number has been reduced.
         internal static Tuple<int, int> ReduceToOdd(int num)
         {
-            if (isEven(num))
+            if (IsEven(num))
             {
                 throw new InvalidOperationException("Even integers are not supported");
             }
@@ -64,7 +122,7 @@ namespace ProjectEuler.Utils
             return new Tuple<int, int>(reducedNum, timesReduced);
         }
 
-        private static bool isEven(int num)
+        private static bool IsEven(int num)
         {
             return num % 2 == 0;
         }
