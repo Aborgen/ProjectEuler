@@ -65,7 +65,7 @@ namespace ProjectEuler.Utils.Tests
         [InlineData(125, false)]
         public void Checks_If_Number_Is_Prime(int value, bool answer)
         {
-            var primality = PrimeGen.IsPrime(value, accuracy:5406020);
+            var primality = PrimeGen.IsPrime(value, accuracy:5);
             Assert.Equal(answer, primality);
         }
     }

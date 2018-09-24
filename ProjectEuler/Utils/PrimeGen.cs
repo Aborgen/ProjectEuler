@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +9,26 @@ namespace ProjectEuler.Utils
 {
     static class PrimeGen
     {
-        private static int currentPrime { get; set; }
+        private static int CurrentPrime { get; set; }
 
         public static int Next()
         {
-            if (currentPrime == 0)
+            if (CurrentPrime == 0)
             {
-                currentPrime = 2;
+                CurrentPrime = 2;
             }
             else
             {
-                int nextPrime = currentPrime + 1;
+                int nextPrime = CurrentPrime + 1;
                 while(!IsPrime(nextPrime))
                 {
                     ++nextPrime;
                 }
 
-                currentPrime = nextPrime;
+                CurrentPrime = nextPrime;
             }
 
-            return currentPrime;
+            return CurrentPrime;
         }
 
         public static bool IsPrime(int num, int accuracy = 5)
@@ -49,18 +50,18 @@ namespace ProjectEuler.Utils
         // and returns false if the number is probably prime.
         private static bool MillerRabinPrimality(int num, int accuracy)
         {
-
-            Random r = new Random();
             var (reducedNum, timesReduced) = ReduceToOdd(num);
-            int randNum;
+            Random r = new Random();
             for (int _ = 0; _ < accuracy; _++)
             {
-                randNum = r.Next(2, num - 2);
+                // Random.Next(): minValue is inclusive and maxValue is
+                // exclusive. The range we actually want is [2, num - 2]
+                int randNum = r.Next(2, num - 1);
                 // If a number in the range [2, n-2] to the power
                 // of n factored until n is odd mod n is odd,
                 // n is probably prime. Continue loop for
                 // greater confidence that this is the case.
-                double x = Math.Pow(randNum, reducedNum) % num;
+                var x = BigInteger.ModPow(randNum, reducedNum, num);
                 if (x == 1 || x == num - 1)
                 {
                     continue;
@@ -76,15 +77,19 @@ namespace ProjectEuler.Utils
             return false;
         }
 
-        private static bool Something(double x, int num, int timesReduced)
+        private static bool Something(BigInteger x, int num, int timesReduced)
         {
-            double temp = x;
+            BigInteger temp = x;
             for (int _ = 0; _ < timesReduced; _++)
             {
                 // The second case where the tested number could
                 // possibly be prime.
-                temp = Math.Pow(temp, 2) % num;
-                if (temp == num - 1)
+                temp = BigInteger.ModPow(temp, 2, num);
+                if (temp == 1)
+                {
+                    break;
+                }
+                else if (temp == num - 1)
                 {
                     return false;
                 }
