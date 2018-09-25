@@ -9,25 +9,35 @@ namespace ProjectEuler.Utils
 {
     static class PrimeGen
     {
-        private static int CurrentPrime { get; set; }
+        private static int CurrentPrime { get; set; } = 1;
+
+        // Returns the next prime and stores it in state
+        public static int Next(int startingPoint)
+        {
+            int nextPrime = startingPoint + 1;
+            while(!IsPrime(nextPrime))
+            {
+                ++nextPrime;
+            }
+
+            CurrentPrime = nextPrime;
+            return CurrentPrime;
+        }
+
+        public static void Reset()
+        {
+            CurrentPrime = 1;
+        }
 
         public static int Next()
         {
-            if (CurrentPrime == 0)
+            int nextPrime = CurrentPrime + 1;
+            while(!IsPrime(nextPrime))
             {
-                CurrentPrime = 2;
-            }
-            else
-            {
-                int nextPrime = CurrentPrime + 1;
-                while(!IsPrime(nextPrime))
-                {
-                    ++nextPrime;
-                }
-
-                CurrentPrime = nextPrime;
+                ++nextPrime;
             }
 
+            CurrentPrime = nextPrime;
             return CurrentPrime;
         }
 
