@@ -68,6 +68,8 @@
     <Compile Include="Problem2\Problem2.Tests.cs" />
     <Compile Include="Problem3\Problem3.cs" />
     <Compile Include="Problem3\Problem3.Tests.cs" />
+    <Compile Include="Problem4\Problem4.cs" />
+    <Compile Include="Problem4\Problem4.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\PrimeGen.cs" />
     <Compile Include="Utils\Fibonacci.cs" />
