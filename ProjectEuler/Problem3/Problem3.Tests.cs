@@ -4,7 +4,7 @@ using System.Linq;
 using Xunit;
 using System.Text;
 using System.Threading.Tasks;
-
+using ProjectEuler.Utils;
 namespace ProjectEuler.Tests
 {
     public class Problem3Tests
@@ -14,13 +14,18 @@ namespace ProjectEuler.Tests
             return new Problem3();
         }
 
+        public Problem3Tests()
+        {
+            PrimeGen.Reset();
+        }
+
         [Fact]
         public void Given__All_Prime_Factors()
         {
             var unitUnderTest = CreateProblem3();
             List<int> primeFactors = unitUnderTest.FindPrimeFactors(13195);
             List<int> expectedPrimeFactors = new List<int>() { 5, 7, 13, 29 };
-            Assert.StrictEqual(expectedPrimeFactors, primeFactors);
+            Assert.Equal(expectedPrimeFactors, primeFactors);
         }
 
         [Fact]
@@ -32,20 +37,20 @@ namespace ProjectEuler.Tests
         }
 
         [Theory]
-        [InlineData(600851475143, new int[] { 6857, 50 })]
-        public void Solved__All_Prime_Factors(int value, IEnumerable<int> correctAnswer)
+        [InlineData(600851475143, new long[] { 71, 839, 1471, 6857 })]
+        public void Solved__All_Prime_Factors(long value, long[] correctAnswer)
         {
             var unitUnderTest = CreateProblem3();
-            List<int> primeFactor = unitUnderTest.FindPrimeFactors(value);
-            Assert.StrictEqual(correctAnswer, primeFactor);
+            List<long> primeFactor = unitUnderTest.FindPrimeFactors(value);
+            Assert.Equal(correctAnswer.ToList(), primeFactor);
         }
 
         [Theory]
         [InlineData(600851475143, 6857)]
-        public void Solved__Largest_Prime_Factor(int value, int correctAnswer)
+        public void Solved__Largest_Prime_Factor(long value, int correctAnswer)
         {
             var unitUnderTest = CreateProblem3();
-            int primeFactor = unitUnderTest.FindLargestPrimeFactor(value);
+            long primeFactor = unitUnderTest.FindLargestPrimeFactor(value);
             Assert.Equal(correctAnswer, primeFactor);
         }
 
