@@ -72,7 +72,7 @@
     <Compile Include="Utils\PrimeGen.cs" />
     <Compile Include="Utils\Fibonacci.cs" />
     <Compile Include="Utils\Fibonacci.Tests.cs" />
-    <Compile Include="Utils\PrimeGenTests.cs" />
+    <Compile Include="Utils\PrimeGen.Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
