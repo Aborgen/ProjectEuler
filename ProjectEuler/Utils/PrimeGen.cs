@@ -9,10 +9,8 @@ namespace ProjectEuler.Utils
 {
     static class PrimeGen
     {
-        private static int CurrentPrime { get; set; } = 1;
-
-        // Returns the next prime and stores it in state
-        public static int Next(int startingPoint)
+        // Returns the next prime
+        public static void Next(int startingPoint, out int result)
         {
             int nextPrime = startingPoint + 1;
             while(!IsPrime(nextPrime))
@@ -20,30 +18,51 @@ namespace ProjectEuler.Utils
                 ++nextPrime;
             }
 
-            CurrentPrime = nextPrime;
-            return CurrentPrime;
+            result = nextPrime;
         }
 
-        public static void Reset()
+        public static void Next(ref int result)
         {
-            CurrentPrime = 1;
+            int startingPoint = result;
+            int nextPrime = startingPoint + 1;
+            while (!IsPrime(nextPrime))
+            {
+                ++nextPrime;
+            }
+
+            result = nextPrime;
         }
 
-        public static int Next()
+        public static void Next(long startingPoint, out long result)
         {
-            int nextPrime = CurrentPrime + 1;
+            long nextPrime = startingPoint + 1;
             while(!IsPrime(nextPrime))
             {
                 ++nextPrime;
             }
 
-            CurrentPrime = nextPrime;
-            return CurrentPrime;
+            result = nextPrime;
+        }
+
+        public static void Next(ref long result)
+        {
+            long startingPoint = result;
+            long nextPrime = startingPoint + 1;
+            while (!IsPrime(nextPrime))
+            {
+                ++nextPrime;
+            }
+
+            result = nextPrime;
         }
 
         public static bool IsPrime(int num, int accuracy = 5)
         {
-            if (num != 2 && IsEven(num))
+            if (num < 2)
+            {
+                return false;
+            }
+            else if (num != 2 && IsEven(num))
             {
                 return false;
             }
@@ -55,9 +74,14 @@ namespace ProjectEuler.Utils
             bool isComposite = MillerRabinPrimality(num, accuracy);
             return !isComposite;
         }
+
         public static bool IsPrime(long num, int accuracy = 5)
         {
-            if (num != 2 && IsEven(num))
+            if (num < 2)
+            {
+                return false;
+            }
+            else if (num != 2 && IsEven(num))
             {
                 return false;
             }

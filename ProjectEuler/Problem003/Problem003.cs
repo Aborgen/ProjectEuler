@@ -13,16 +13,16 @@ namespace ProjectEuler
         {
             var primeFactors = new List<int>();
             int temp = value;
+            int currentPrime = 0;
             while (!PrimeGen.IsPrime(temp))
             {
-                int currentPrime = PrimeGen.Next();
+                PrimeGen.Next(ref currentPrime);
                 int remainder;
                 int quotient = Math.DivRem(temp, currentPrime, out remainder);
                 if (remainder == 0)
                 {
                     primeFactors.Add(currentPrime);
                     temp = quotient;
-                    PrimeGen.Reset();
                 }
             }
 
@@ -34,16 +34,16 @@ namespace ProjectEuler
         {
             var primeFactors = new List<long>();
             long temp = value;
+            long currentPrime = 0;
             while (!PrimeGen.IsPrime(temp))
             {
-                long currentPrime = PrimeGen.Next();
+                PrimeGen.Next(ref currentPrime);
                 long remainder;
                 long quotient = Math.DivRem(temp, currentPrime, out remainder);
                 if (remainder == 0)
                 {
                     primeFactors.Add(currentPrime);
                     temp = quotient;
-                    PrimeGen.Reset();
                 }
             }
 

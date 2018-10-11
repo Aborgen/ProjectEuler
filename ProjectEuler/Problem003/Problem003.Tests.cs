@@ -14,11 +14,6 @@ namespace ProjectEuler.Tests
             return new Problem003();
         }
 
-        public Problem003Tests()
-        {
-            PrimeGen.Reset();
-        }
-
         [Fact]
         public void Given__All_Prime_Factors()
         {

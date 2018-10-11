@@ -10,11 +10,6 @@ namespace ProjectEuler.Utils.Tests
         private int CurrentPrime = 1;
         public int CurrentPrime1 { get => CurrentPrime; set => CurrentPrime = value; }
 
-        public PrimeGenTests()
-        {
-            PrimeGen.Reset();
-        }
-
         [Theory]
         [InlineData(11)]
         [InlineData(3)]
@@ -87,7 +82,8 @@ namespace ProjectEuler.Utils.Tests
         [InlineData(421, 431)]
         public void Returns_Next_Prime(int startingPoint, int correctNextPrime)
         {
-            int nextPrime = PrimeGen.Next(startingPoint);
+            int nextPrime;
+            PrimeGen.Next(startingPoint, out nextPrime);
             Assert.Equal(correctNextPrime, nextPrime);
         }
 
@@ -101,10 +97,13 @@ namespace ProjectEuler.Utils.Tests
 
             int length = correctPrimes.Count;
             var primes = new List<int>(length);
+            int currentPrime = 0;
             for (int i = 0; i < length; i++)
             {
-                int nextPrime = PrimeGen.Next();
+                int nextPrime = currentPrime;
+                PrimeGen.Next(ref nextPrime);
                 primes.Add(nextPrime);
+                currentPrime = nextPrime;
             }
 
             Assert.Equal(correctPrimes, primes);
