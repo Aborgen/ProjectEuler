@@ -2,17 +2,17 @@ using Xunit;
 
 namespace ProjectEuler.Tests
 {
-    public class Problem5Tests
+    public class Problem005Tests
     {
-        private Problem5 CreateProblem5()
+        private Problem005 CreateProblem005()
         {
-            return new Problem5();
+            return new Problem005();
         }
 
         [Fact]
         public void Given()
         {
-            var unitUnderTest = CreateProblem5();
+            var unitUnderTest = CreateProblem005();
             int smallestPositiveNumber = unitUnderTest.SmallestMultiple(maxMultiple:10);
             Assert.Equal(2520, smallestPositiveNumber);
         }
@@ -20,7 +20,7 @@ namespace ProjectEuler.Tests
         [Fact]
         public void Solved()
         {
-            var unitUnderTest = CreateProblem5();
+            var unitUnderTest = CreateProblem005();
             int smallestPositiveNumber = unitUnderTest.SmallestMultiple(maxMultiple:20);
             Assert.Equal(232792560, smallestPositiveNumber);
         }

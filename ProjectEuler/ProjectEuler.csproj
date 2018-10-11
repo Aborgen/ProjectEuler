@@ -62,24 +62,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Problem1\Problem1.cs" />
-    <Compile Include="Problem1\Problem1.Tests.cs" />
-    <Compile Include="Problem2\Problem2.cs" />
-    <Compile Include="Problem2\Problem2.Tests.cs" />
-    <Compile Include="Problem3\Problem3.cs" />
-    <Compile Include="Problem3\Problem3.Tests.cs" />
-    <Compile Include="Problem4\Problem4.cs" />
-    <Compile Include="Problem4\Problem4.Tests.cs" />
-    <Compile Include="Problem5\Problem5.cs" />
-    <Compile Include="Problem5\Problem5.Tests.cs" />
-    <Compile Include="Problem6\Problem6.cs" />
-    <Compile Include="Problem6\Problem6.Tests.cs" />
-    <Compile Include="Problem7\Problem7.cs" />
-    <Compile Include="Problem7\Problem7.Tests.cs" />
-    <Compile Include="Problem8\Problem8.cs" />
-    <Compile Include="Problem8\Problem8.Tests.cs" />
-    <Compile Include="Problem9\Problem9.cs" />
-    <Compile Include="Problem9\Problem9.Tests.cs" />
+    <Compile Include="Problem001\Problem001.cs" />
+    <Compile Include="Problem001\Problem001.Tests.cs" />
+    <Compile Include="Problem002\Problem002.cs" />
+    <Compile Include="Problem002\Problem002.Tests.cs" />
+    <Compile Include="Problem003\Problem003.cs" />
+    <Compile Include="Problem003\Problem003.Tests.cs" />
+    <Compile Include="Problem004\Problem004.cs" />
+    <Compile Include="Problem004\Problem004.Tests.cs" />
+    <Compile Include="Problem005\Problem005.cs" />
+    <Compile Include="Problem005\Problem005.Tests.cs" />
+    <Compile Include="Problem006\Problem006.cs" />
+    <Compile Include="Problem006\Problem006.Tests.cs" />
+    <Compile Include="Problem007\Problem007.cs" />
+    <Compile Include="Problem007\Problem007.Tests.cs" />
+    <Compile Include="Problem008\Problem008.cs" />
+    <Compile Include="Problem008\Problem008.Tests.cs" />
+    <Compile Include="Problem009\Problem009.cs" />
+    <Compile Include="Problem009\Problem009.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\PrimeGen.cs" />
     <Compile Include="Utils\Fibonacci.cs" />
@@ -93,7 +93,7 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Problem8\1000Digits.txt">
+    <Content Include="Problem008\1000Digits.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

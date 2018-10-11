@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace ProjectEuler
 {
-    class Problem9
+    class Problem009
     {
         private enum Operation
         {

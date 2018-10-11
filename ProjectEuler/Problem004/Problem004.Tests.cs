@@ -4,17 +4,17 @@ using Xunit;
 
 namespace ProjectEuler.Tests
 {
-    public class Problem4Tests
+    public class Problem004Tests
     {
-        private Problem4 CreateProblem4()
+        private Problem004 CreateProblem004()
         {
-            return new Problem4();
+            return new Problem004();
         }
 
         [Fact]
         public void Given()
         {
-            var unitUnderTest = CreateProblem4();
+            var unitUnderTest = CreateProblem004();
             int largestPalindrome = unitUnderTest.FindLargestPalindrome(digitLength:2);
 
             Assert.Equal(9009, largestPalindrome);
@@ -28,7 +28,7 @@ namespace ProjectEuler.Tests
         [InlineData(549945, true)]
         public void Can_Tell_If_Number_Is_Palindrome(int value, bool correctResult)
         {
-            var unitUnderTest = CreateProblem4();
+            var unitUnderTest = CreateProblem004();
             bool possiblePalindrome = unitUnderTest.IsPalindrome(value);
             Assert.Equal(correctResult, possiblePalindrome);
         }
@@ -38,7 +38,7 @@ namespace ProjectEuler.Tests
         [InlineData(4, 99000099)]
         public void Solved(int digitLength, int correctAnswer)
         {
-            var unitUnderTest = CreateProblem4();
+            var unitUnderTest = CreateProblem004();
             int palindrome = unitUnderTest.FindLargestPalindrome(digitLength);
             Assert.Equal(correctAnswer, palindrome);
         }

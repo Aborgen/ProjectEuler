@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    class Problem7
+    class Problem007
     {
         public int NthPrime(int index)
         {

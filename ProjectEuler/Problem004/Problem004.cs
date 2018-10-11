@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
-    class Problem4
+    class Problem004
     {
         public int FindLargestPalindrome(int digitLength)
         {

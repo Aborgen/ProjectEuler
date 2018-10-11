@@ -2,17 +2,17 @@ using Xunit;
 
 namespace ProjectEuler.Tests
 {
-    public class Problem8Tests
+    public class Problem008Tests
     {
-        private Problem8 CreateProblem8()
+        private Problem008 CreateProblem008()
         {
-            return new Problem8();
+            return new Problem008();
         }
 
         [Fact]
         public void Given()
         {
-            var unitUnderTest = CreateProblem8();
+            var unitUnderTest = CreateProblem008();
             var sum = unitUnderTest.LargestProductInSeries(subSeriesLength:4);
             Assert.Equal(5832, sum);
         }
@@ -20,7 +20,7 @@ namespace ProjectEuler.Tests
         [Fact]
         public void Solved()
         {
-            var unitUnderTest = CreateProblem8();
+            var unitUnderTest = CreateProblem008();
             var sum = unitUnderTest.LargestProductInSeries(subSeriesLength:13);
             Assert.Equal(23514624000, sum);
         }

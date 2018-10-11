@@ -5,7 +5,7 @@
 
 namespace ProjectEuler
 {
-    class Problem2
+    class Problem002
     {
         public int SumOfEvenFib(int maxValue)
         {

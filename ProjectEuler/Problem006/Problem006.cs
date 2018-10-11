@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    class Problem6
+    class Problem006
     {
         private enum Type
         {

@@ -7,7 +7,7 @@ using ProjectEuler.Utils;
 
 namespace ProjectEuler
 {
-    class Problem3
+    class Problem003
     {
         public List<int> FindPrimeFactors(int value)
         {

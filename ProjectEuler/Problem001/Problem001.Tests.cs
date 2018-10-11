@@ -2,17 +2,17 @@ using Xunit;
 
 namespace ProjectEuler.Tests
 {
-    public class Problem1Tests
+    public class Problem001Tests
     {
-        private Problem1 CreateProblem1()
+        private Problem001 CreateProblem001()
         {
-            return new Problem1();
+            return new Problem001();
         }
 
         [Fact]
         public void Given()
         {
-            var unitUnderTest = CreateProblem1();
+            var unitUnderTest = CreateProblem001();
             var sum = unitUnderTest.SumNumbersBelow(10);
             Assert.Equal(23, sum);
         }
@@ -21,7 +21,7 @@ namespace ProjectEuler.Tests
         [InlineData(1000, 233168)]
         public void Solved(int value, int correctResult)
         {
-            var unitUnderTest = CreateProblem1();
+            var unitUnderTest = CreateProblem001();
             var sum = unitUnderTest.SumNumbersBelow(value);
             Assert.Equal(correctResult, sum);
         }

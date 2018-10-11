@@ -6,11 +6,11 @@ using System.Numerics;
 
 namespace ProjectEuler
 {
-    class Problem8
+    class Problem008
     {
         public BigInteger LargestProductInSeries(int subSeriesLength)
         {
-            var r = new StreamReader("Problem8/1000Digits.txt");
+            var r = new StreamReader("Problem008/1000Digits.txt");
             string line = r.ReadLine();
             r.Close();
             if (string.IsNullOrWhiteSpace(line))

@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    class Problem5
+    class Problem005
     {
         public int SmallestMultiple(int maxMultiple)
         {

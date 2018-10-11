@@ -2,17 +2,17 @@ using Xunit;
 
 namespace ProjectEuler.Tests
 {
-    public class Problem9Tests
+    public class Problem009Tests
     {
-        private Problem9 CreateProblem9()
+        private Problem009 CreateProble009()
         {
-            return new Problem9();
+            return new Problem009();
         }
 
         [Fact]
         public void Solved()
         {
-            var unitUnderTest = CreateProblem9();
+            var unitUnderTest = CreateProble009();
             var product = unitUnderTest.PythagoreanTripletProduct(goal: 1000);
             Assert.Equal(31875000, product);
         }
