@@ -84,11 +84,18 @@
     <Compile Include="Problem010\Problem010.Tests.cs" />
     <Compile Include="Problem011\Problem011.cs" />
     <Compile Include="Problem011\Problem011.Tests.cs" />
+    <Compile Include="Problem012\Problem012.cs" />
+    <Compile Include="Problem012\Problem012.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FactorizationStation.cs" />
+    <Compile Include="Utils\FactorizationStation.Tests.cs" />
+    <Compile Include="Utils\INumberGenerator.cs" />
     <Compile Include="Utils\PrimeGen.cs" />
     <Compile Include="Utils\Fibonacci.cs" />
     <Compile Include="Utils\Fibonacci.Tests.cs" />
     <Compile Include="Utils\PrimeGen.Tests.cs" />
+    <Compile Include="Utils\TriangleNumber.cs" />
+    <Compile Include="Utils\TriangleNumber.Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
